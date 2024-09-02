@@ -1,0 +1,36 @@
+alunos = {}
+while True:
+  
+  
+  print("\nAdicionar alunos(1) // Remover alunos(2) // Visualizar Cadastros(3) // sair(0)")
+  usuario = int(input("\nInsira o comando: "))
+  
+  if usuario == 1:
+    print("\nInforme o nome e numero de matrícula do aluno")
+    nome = input("\nNome do aluno: ")
+    matricula = int(input("matrícula do aluno: "))
+    alunos[nome] = matricula
+
+  elif usuario == 2:
+    print("\nInforme a matrícula para remover o aluno do cadastro ")
+    remover_aluno = int(input("\nMatrícula do aluno: "))
+    for nome,matricula in list(alunos.items()):
+      if remover_aluno == matricula:
+        del alunos[nome]
+        print(f"\nAluno {nome} removido com sucesso.")
+        break
+      
+      else:
+        print("matricula não foi encontrada no banco de dados,tente novamnete!")
+  
+  elif usuario == 3:
+    if alunos:
+     for nome,matricula in alunos.items():
+       print(f"\nAluno {nome} - Matrícula {matricula}")
+    
+    else:
+      print("\nNenhum aluno cadastrado.")
+  
+  else:
+    print("Programa finalizado,volte sempre.")
+    break 
